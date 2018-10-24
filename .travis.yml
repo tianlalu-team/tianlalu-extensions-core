@@ -8,12 +8,11 @@ install:
 script:
  - dotnet build -c Release
  - dotnet test -c Release tests/TianLaLu.Extensions.Tests/TianLaLu.Extensions.Tests.csproj
- - dotnet pack -c Release
 
 deploy:
   skip_cleanup: true
   provider: script
-  script: dotnet nuget push src/TianLaLu.Extensions/bin/Release/TianLaLu.*.nupkg --api-key $NUGET_API_KEY
+  script: dotnet pack -c Release && dotnet nuget push src/TianLaLu.Extensions/bin/Release/TianLaLu.*.nupkg --api-key $NUGET_API_KEY
   on:
     tags: true
     condition: $TRAVIS_TAG =~ ^(\d+\.)?(\d+\.)?(\*|\d+)$
