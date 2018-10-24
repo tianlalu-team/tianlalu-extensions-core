@@ -14,8 +14,12 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{4527C5C1-1352-45A2-B0D8-F8092169C7DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4527C5C1-1352-45A2-B0D8-F8092169C7DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4527C5C1-1352-45A2-B0D8-F8092169C7DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4527C5C1-1352-45A2-B0D8-F8092169C7DD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C5909DDC-8BD8-42BA-9692-4C1D51984F4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C5909DDC-8BD8-42BA-9692-4C1D51984F4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5909DDC-8BD8-42BA-9692-4C1D51984F4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5909DDC-8BD8-42BA-9692-4C1D51984F4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4527C5C1-1352-45A2-B0D8-F8092169C7DD} = {76F6827A-02A0-4157-89E8-D124B67F8373}
@@ -23,5 +27,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 EndGlobal
