@@ -1,8 +1,10 @@
 language: csharp
 mono: none
-os: linux
-dist: trusty
 dotnet: 2.0.0
+
+install:
+- dotnet restore
+
 script:
-- dotnet build -c Release
-- dotnet test
+ - dotnet build
+ - dotnet test tests/TianLaLu.Extensions.Tests/TianLaLu.Extensions.Tests.csproj
