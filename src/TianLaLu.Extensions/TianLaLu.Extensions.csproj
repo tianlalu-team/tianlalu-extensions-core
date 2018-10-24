@@ -6,10 +6,10 @@
     <Product>TianLaLu.Extensions</Product>
     <AssemblyTitle>TianLaLu.Extensions</AssemblyTitle>
     <AssemblyName>TianLaLu.Extensions</AssemblyName>
-    <AssemblyVersion>0.0.1</AssemblyVersion>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
 
     <PackageId>TianLaLu.Extensions</PackageId>
-    <PackageVersion>0.0.1</PackageVersion>
+    <PackageVersion>1.0.0</PackageVersion>
     <PackageProjectUrl>https://github.com/tianlalu-team/tianlalu-extensions-core</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/tianlalu-team/tianlalu-extensions-core/blob/master/LICENSE</PackageLicenseUrl>
     
