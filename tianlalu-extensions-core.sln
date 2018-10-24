@@ -6,13 +6,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{76F6827A-02A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TianLaLu.Extensions", "src\TianLaLu.Extensions\TianLaLu.Extensions.csproj", "{4527C5C1-1352-45A2-B0D8-F8092169C7DD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{91E99338-A153-4B34-8687-2E1207FA43FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TianLaLu.Extensions.Tests", "tests\TianLaLu.Extensions.Tests\TianLaLu.Extensions.Tests.csproj", "{C5909DDC-8BD8-42BA-9692-4C1D51984F4E}"
+EndProject
 Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{4527C5C1-1352-45A2-B0D8-F8092169C7DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4527C5C1-1352-45A2-B0D8-F8092169C7DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5909DDC-8BD8-42BA-9692-4C1D51984F4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5909DDC-8BD8-42BA-9692-4C1D51984F4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4527C5C1-1352-45A2-B0D8-F8092169C7DD} = {76F6827A-02A0-4157-89E8-D124B67F8373}
+		{C5909DDC-8BD8-42BA-9692-4C1D51984F4E} = {91E99338-A153-4B34-8687-2E1207FA43FD}
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
