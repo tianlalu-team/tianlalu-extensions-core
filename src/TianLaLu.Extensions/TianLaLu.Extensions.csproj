@@ -2,5 +2,18 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>System</RootNamespace>
+    
+    <Product>TianLaLu.Extensions</Product>
+    <AssemblyTitle>TianLaLu.Extensions</AssemblyTitle>
+    <AssemblyName>TianLaLu.Extensions</AssemblyName>
+
+    <PackageId>TianLaLu.Extensions</PackageId>
+    <PackageProjectUrl>https://github.com/tianlalu-team/tianlalu-extensions-core</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/tianlalu-team/tianlalu-extensions-core/blob/master/LICENSE</PackageLicenseUrl>
+    
+    <Description>dotnet core extensions</Description>
+
+    <Authors>兜小神</Authors>
+    <Owners>兜小神</Owners>
   </PropertyGroup>
 </Project>
