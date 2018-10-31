@@ -11,20 +11,32 @@ clone_depth: 1
 skip_tags: true
 configuration: Release
 platform: Any CPU
+
 environment:
+  # Don't report back to the mothership
   DOTNET_CLI_TELEMETRY_OPTOUT: 1
-cache: '%USERPROFILE%\.nuget\packages'
+
+# cache: '%USERPROFILE%\.nuget\packages'
+
 init:
 - cmd: git config --global core.autocrlf true
+- ps: $Env:LABEL = "CI" + $Env:APPVEYOR_BUILD_NUMBER.PadLeft(5, "0")
+
 install:
 - ps: dotnet restore -v Minimal
 - ps: dotnet add .\tests\TianLaLu.Extensions.Tests\TianLaLu.Extensions.Tests.csproj package Appveyor.TestLogger
+
+before_build:
+- appveyor-retry dotnet restore -v Minimal
+
 build:
-  project: tianlalu-extensions-core.sln
-  verbosity: minimal
+- dotnet build
+
 test_script:
 - dotnet test .\tests\TianLaLu.Extensions.Tests\TianLaLu.Extensions.Tests.csproj --logger:trx;LogFileName=result.trx
+
 after_test:
 - ps: $wc = New-Object 'System.Net.WebClient'
 - ps: $wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\tests\TianLaLu.Extensions.Tests\TestREsults\result.trx))
+
 deploy: off
