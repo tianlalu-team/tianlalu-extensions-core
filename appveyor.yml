@@ -23,10 +23,8 @@ nuget:
   disable_publish_on_pr: true
 
 artifacts:
-- path: .\artifacts\**\*.nupkg
-  name: NuGet
-
-
+ - path: .\artifacts\**\*.nupkg
+   name: NuGet
 
 init:
  # Good practise, because Windows line endings are different from Unix/Linux ones
@@ -42,7 +40,7 @@ before_build:
  - cmd: appveyor-retry dotnet restore -v Minimal
 
 build_script:
- - cmd: dotnet build -c %CONFIGURATION% -o artifacts --version-suffix %LABEL%
+ - cmd: dotnet build -c %CONFIGURATION% --version-suffix %LABEL%
 
 after_build:
  - cmd: dotnet pack -c %CONFIGURATION% --no-build --version-suffix %LABEL% -o artifacts
