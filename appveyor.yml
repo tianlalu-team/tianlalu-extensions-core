@@ -1,42 +1,57 @@
 version: 0.1.{build}
 os: Visual Studio 2017
 image: Visual Studio 2017
-pull_requests:
-  do_not_increment_build_number: true
-branches:
-  only:
-    - master
-    - release
 clone_depth: 1
 skip_tags: true
 configuration: Release
 platform: Any CPU
+cache: '%USERPROFILE%\.nuget\packages'
 
 environment:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   # Don't report back to the mothership
-  DOTNET_CLI_TELEMETRY_OPTOUT: 1
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
 
-# cache: '%USERPROFILE%\.nuget\packages'
+branches:
+  only:
+  - master
+
+pull_requests:
+  do_not_increment_build_number: true
+
+nuget:
+  disable_publish_on_pr: true
+
+artifacts:
+- path: .\artifacts\**\*.nupkg
+  name: NuGet
+
+
 
 init:
-- cmd: git config --global core.autocrlf true
-- ps: $Env:LABEL = "CI" + $Env:APPVEYOR_BUILD_NUMBER.PadLeft(5, "0")
+ # Good practise, because Windows line endings are different from Unix/Linux ones
+ - cmd: git config --global core.autocrlf true
+ - ps: $Env:LABEL = "CI" + $Env:APPVEYOR_BUILD_NUMBER.PadLeft(5, "0")
 
 install:
-- ps: dotnet restore -v Minimal
-- ps: dotnet add .\tests\TianLaLu.Extensions.Tests\TianLaLu.Extensions.Tests.csproj package Appveyor.TestLogger
+ - cmd: dotnet --version
+# - cmd: dotnet restore -v Minimal
+ - cmd: dotnet add .\tests\TianLaLu.Extensions.Tests\TianLaLu.Extensions.Tests.csproj package Appveyor.TestLogger
 
 before_build:
-- appveyor-retry dotnet restore -v Minimal
+ - cmd: appveyor-retry dotnet restore -v Minimal
 
 build_script:
-- dotnet build
+ - cmd: dotnet build -c %CONFIGURATION% -o artifacts --version-suffix %LABEL%
+
+after_build:
+ - cmd: dotnet pack -c %CONFIGURATION% --no-build --version-suffix %LABEL% -o artifacts
 
 test_script:
-- dotnet test .\tests\TianLaLu.Extensions.Tests\TianLaLu.Extensions.Tests.csproj --logger:trx;LogFileName=result.trx
+ - cmd: dotnet test .\tests\TianLaLu.Extensions.Tests\TianLaLu.Extensions.Tests.csproj --logger:trx;LogFileName=result.trx
 
 after_test:
-- ps: $wc = New-Object 'System.Net.WebClient'
-- ps: $wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\tests\TianLaLu.Extensions.Tests\TestREsults\result.trx))
+ - ps: $wc = New-Object 'System.Net.WebClient'
+ - ps: $wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\tests\TianLaLu.Extensions.Tests\TestREsults\result.trx))
 
 deploy: off
