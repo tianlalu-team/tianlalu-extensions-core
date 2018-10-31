@@ -41,7 +41,6 @@ init:
 
 install:
  - cmd: dotnet --version
-# - cmd: dotnet restore -v Minimal
  - cmd: dotnet add .\tests\TianLaLu.Extensions.Tests\TianLaLu.Extensions.Tests.csproj package Appveyor.TestLogger
 
 before_build:
@@ -66,7 +65,3 @@ deploy:
   api_key:
     secure: cVM2YoFj7BZNZHxbK4Cdz+1REd05i/FRleiEpxfF9LlZEWHiZffg2xIqEeYGdviu
   skip_symbols: true
-#  artifact: /.*\.nupkg/
-  on:
-    branch: master
-    appveyor_repo_tag: true
