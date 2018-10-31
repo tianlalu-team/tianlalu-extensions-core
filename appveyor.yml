@@ -22,9 +22,9 @@ pull_requests:
 nuget:
   disable_publish_on_pr: true
 
-artifacts:
- - path: .\**\artifacts\**\TianLaLu.*.nupkg
-   name: NuGet
+# artifacts:
+#  - path: .\**\TianLaLu.*.nupkg
+#    name: NuGet
 
 dotnet_csproj:
   patch: true
@@ -60,4 +60,9 @@ after_test:
  - ps: $wc = New-Object 'System.Net.WebClient'
  - ps: $wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\tests\TianLaLu.Extensions.Tests\TestREsults\result.trx))
 
-deploy: off
+deploy:
+  provider: NuGet
+  api_key:
+    secure: cVM2YoFj7BZNZHxbK4Cdz+1REd05i/FRleiEpxfF9LlZEWHiZffg2xIqEeYGdviu
+  skip_symbols: true
+  artifact: /.*\.nupkg/
