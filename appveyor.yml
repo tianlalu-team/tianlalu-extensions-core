@@ -22,9 +22,9 @@ pull_requests:
 nuget:
   disable_publish_on_pr: true
 
-# artifacts:
-#  - path: .\**\TianLaLu.*.nupkg
-#    name: NuGet
+artifacts:
+ - path: .\**\TianLaLu.*.nupkg
+   name: NuGet
 
 dotnet_csproj:
   patch: true
@@ -62,7 +62,11 @@ after_test:
 
 deploy:
   provider: NuGet
+  name: production
   api_key:
     secure: cVM2YoFj7BZNZHxbK4Cdz+1REd05i/FRleiEpxfF9LlZEWHiZffg2xIqEeYGdviu
   skip_symbols: true
-  artifact: /.*\.nupkg/
+#  artifact: /.*\.nupkg/
+  on:
+    branch: master
+    appveyor_repo_tag: true
