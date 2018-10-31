@@ -29,7 +29,7 @@ install:
 before_build:
 - appveyor-retry dotnet restore -v Minimal
 
-build:
+build_script:
 - dotnet build
 
 test_script:
