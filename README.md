@@ -1,7 +1,7 @@
-[![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg?style=popout)](https://github.com/tianlalu-team/tianlalu-extensions-core/blob/master/LICENSE)
-[![GitHub repo size in bytes](https://img.shields.io/github/repo-size/badges/shields.svg?style=popout)](https://github.com/tianlalu-team/tianlalu-extensions-core)
-[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/badges/shields.svg?style=popout)](https://github.com/tianlalu-team/tianlalu-extensions-core)
-[![GitHub top language](https://img.shields.io/github/languages/top/badges/shields.svg?style=popout)](https://github.com/tianlalu-team/tianlalu-extensions-core)
+[![GitHub](https://img.shields.io/github/license/tianlalu-team/tianlalu-extensions-core.svg?style=popout)](https://github.com/tianlalu-team/tianlalu-extensions-core/blob/master/LICENSE)
+[![GitHub repo size in bytes](https://img.shields.io/github/repo-size/tianlalu-team/tianlalu-extensions-core.svg?style=popout)](https://github.com/tianlalu-team/tianlalu-extensions-core)
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/tianlalu-team/tianlalu-extensions-core.svg?style=popout)](https://github.com/tianlalu-team/tianlalu-extensions-core)
+[![GitHub top language](https://img.shields.io/github/languages/top/tianlalu-team/tianlalu-extensions-core.svg?style=popout)](https://github.com/tianlalu-team/tianlalu-extensions-core)
 
 [![sonarcloud](https://sonarcloud.io/api/project_badges/measure?project=tianlalu-extensions-core&metric=alert_status)](https://sonarcloud.io/dashboard?id=tianlalu-extensions-core)
 [![sonarcloud](https://sonarcloud.io/api/project_badges/measure?project=tianlalu-extensions-core&metric=sqale_index)](https://sonarcloud.io/dashboard?id=tianlalu-extensions-core)
