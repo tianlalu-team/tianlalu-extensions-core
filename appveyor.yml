@@ -46,19 +46,21 @@ install:
  - cmd: dotnet add .\tests\TianLaLu.Extensions.Tests\TianLaLu.Extensions.Tests.csproj package Appveyor.TestLogger
 
 before_build:
- - cmd: dotnet tool install --global dotnet-sonarscanner
  - cmd: appveyor-retry dotnet restore -v Minimal
+ - cmd: dotnet tool install --global dotnet-sonarscanner
+ - cmd: dotnet sonarscanner begin /k:"tianlalu-extensions-core" /d:sonar.organization="tianlalu-team" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="%SONAR_TOKEN%" /d:sonar.cs.opencover.reportsPaths=".\tests\TianLaLu.Extensions.Tests\coverage.opencover.xml" /d:sonar.coverage.exclusions="**Tests*.cs" /v:"{version}"
 
 build_script:
- - cmd: dotnet sonarscanner begin /k:"tianlalu-extensions-core" /d:sonar.organization="tianlalu-team" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="%SONAR_TOKEN%"
  - cmd: dotnet build -c %CONFIGURATION% --no-restore
- - cmd: dotnet sonarscanner end /d:sonar.login="%SONAR_TOKEN%"
 
 after_build:
  - cmd: dotnet pack -c %CONFIGURATION% --no-build
 
 test_script:
- - cmd: dotnet test .\tests\TianLaLu.Extensions.Tests\TianLaLu.Extensions.Tests.csproj
+ - cmd: dotnet test .\tests\TianLaLu.Extensions.Tests\TianLaLu.Extensions.Tests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+
+after_test:
+ - cmd: dotnet sonarscanner end /d:sonar.login="%SONAR_TOKEN%"
 
 deploy:
   provider: NuGet
