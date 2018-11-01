@@ -48,7 +48,7 @@ install:
 before_build:
  - cmd: appveyor-retry dotnet restore -v Minimal
  - cmd: dotnet tool install --global dotnet-sonarscanner
- - cmd: dotnet sonarscanner begin /k:"tianlalu-extensions-core" /d:sonar.organization="tianlalu-team" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="%SONAR_TOKEN%" /d:sonar.cs.opencover.reportsPaths=".\tests\TianLaLu.Extensions.Tests\coverage.opencover.xml" /d:sonar.coverage.exclusions="**Tests*.cs" /v:"$(appveyor_build_version)"
+ - cmd: dotnet sonarscanner begin /k:"tianlalu-extensions-core" /d:sonar.organization="tianlalu-team" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="%SONAR_TOKEN%" /d:sonar.cs.opencover.reportsPaths=".\tests\TianLaLu.Extensions.Tests\coverage.opencover.xml" /d:sonar.coverage.exclusions="**Tests*.cs" /v:"%appveyor_build_version%"
 
 build_script:
  - cmd: dotnet build -c %CONFIGURATION% --no-restore
