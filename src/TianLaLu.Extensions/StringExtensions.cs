@@ -8,5 +8,10 @@ namespace System
         {
             return Encoding.UTF8.GetBytes(str).ComputeHash(provider, toUpper);
         }
+        
+        public static bool IsNullOrEmpty(this string str)
+        {
+            return string.IsNullOrEmpty(str);
+        }
     }
 }
